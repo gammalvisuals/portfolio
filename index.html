@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohamed ElGammal — Graphic Designer</title>
+<meta name="description" content="Mohamed ElGammal — freelance graphic designer based in Egypt. Social media design, advertising, branding and print.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800;900&family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --burg:#6E1423; --burg-deep:#47101B; --burg-dark:#2E0A11; --burg-soft:#8C2437;
+  --white:#FFFFFF; --cream:#FAF5F1; --sand:#F3E9E4; --ink:#1C1114;
+  --gold:#C9A24B;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+.ar{font-family:'Cairo',sans-serif}
+::selection{background:var(--burg);color:var(--white)}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+
+/* ---------- NAV ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;
+  padding:18px 6vw;transition:background .35s,box-shadow .35s}
+nav.scrolled{background:rgba(70,16,27,.92);backdrop-filter:blur(12px);box-shadow:0 8px 30px rgba(46,10,17,.35)}
+.logo{font-weight:900;font-size:1.25rem;letter-spacing:.14em;color:var(--white)}
+.logo span{color:var(--gold)}
+.nav-links{display:flex;gap:34px;list-style:none}
+.nav-links a{color:rgba(255,255,255,.82);font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;position:relative}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--gold);transition:width .3s}
+.nav-links a:hover::after{width:100%}
+.burger{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
+.burger span{width:26px;height:2px;background:var(--white);transition:.3s}
+@media(max-width:820px){
+  .burger{display:flex}
+  .nav-links{position:fixed;inset:0;background:var(--burg-dark);flex-direction:column;justify-content:center;align-items:center;gap:30px;
+    transform:translateY(-100%);transition:transform .4s}
+  .nav-links.open{transform:translateY(0)}
+  .nav-links a{font-size:1.1rem}
+}
+
+/* ---------- HERO ---------- */
+.hero{min-height:100vh;background:
+  radial-gradient(1100px 600px at 85% -10%,rgba(201,162,75,.16),transparent 60%),
+  radial-gradient(900px 700px at -10% 110%,rgba(140,36,55,.55),transparent 55%),
+  linear-gradient(160deg,var(--burg) 0%,var(--burg-deep) 55%,var(--burg-dark) 100%);
+  color:var(--white);display:flex;flex-direction:column;justify-content:center;padding:120px 6vw 80px;position:relative;overflow:hidden}
+.hero::before{content:'محمد';font-family:'Cairo';font-weight:900;position:absolute;right:-2vw;bottom:-6vw;
+  font-size:32vw;color:rgba(255,255,255,.045);line-height:1;pointer-events:none}
+.hero .kicker{display:flex;align-items:center;gap:14px;color:var(--gold);letter-spacing:.3em;font-size:.72rem;font-weight:600;text-transform:uppercase}
+.hero .kicker::before{content:'';width:46px;height:1px;background:var(--gold)}
+.hero h1{font-size:clamp(3rem,9vw,7.2rem);font-weight:900;line-height:.98;margin:22px 0 6px;letter-spacing:-.01em}
+.hero h1 .line2{color:transparent;-webkit-text-stroke:2px rgba(255,255,255,.85)}
+.hero .tag{font-size:clamp(1rem,2.2vw,1.5rem);font-weight:300;color:rgba(255,255,255,.85);max-width:620px;margin-top:14px}
+.hero .tag b{color:var(--gold);font-weight:600}
+.hero-ar{font-family:'Cairo';font-size:clamp(1.1rem,2.6vw,1.7rem);color:rgba(255,255,255,.6);margin-top:10px}
+.hero-cta{display:flex;gap:16px;margin-top:42px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 32px;border-radius:100px;font-weight:600;font-size:.85rem;
+  letter-spacing:.12em;text-transform:uppercase;transition:transform .25s,box-shadow .25s,background .25s;cursor:pointer;border:0}
+.btn:hover{transform:translateY(-3px)}
+.btn-solid{background:var(--white);color:var(--burg-deep)}
+.btn-solid:hover{box-shadow:0 14px 34px rgba(0,0,0,.35)}
+.btn-ghost{border:1.5px solid rgba(255,255,255,.5);color:var(--white)}
+.btn-ghost:hover{background:rgba(255,255,255,.1)}
+.hero-meta{position:absolute;left:6vw;bottom:34px;display:flex;gap:34px;color:rgba(255,255,255,.55);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase}
+.scroll-hint{position:absolute;right:6vw;bottom:34px;color:rgba(255,255,255,.5);font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;
+  writing-mode:vertical-rl;display:flex;align-items:center;gap:10px}
+.scroll-hint::after{content:'';width:1px;height:52px;background:linear-gradient(var(--gold),transparent);animation:drip 1.8s infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}55%{transform:scaleY(1);transform-origin:top}56%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+</style>
+<style>
+/* ---------- SECTIONS ---------- */
+section{padding:110px 6vw;position:relative}
+.sec-label{display:flex;align-items:center;gap:14px;color:var(--burg);letter-spacing:.3em;font-size:.72rem;font-weight:600;text-transform:uppercase;margin-bottom:18px}
+.sec-label::before{content:'';width:46px;height:1px;background:var(--burg)}
+.sec-title{font-size:clamp(2rem,5vw,3.4rem);font-weight:800;line-height:1.05;margin-bottom:14px}
+.sec-sub{color:#6b5a5e;max-width:560px;font-weight:300;font-size:1.02rem;line-height:1.7}
+
+/* stats */
+.stats{background:var(--burg-deep);color:var(--white);display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:64px 6vw}
+.stat{text-align:center;padding:14px;border-left:1px solid rgba(255,255,255,.08)}
+.stat:first-child{border-left:0}
+.stat b{display:block;font-size:clamp(2rem,4.5vw,3.2rem);font-weight:900;color:var(--gold)}
+.stat span{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+@media(max-width:820px){.stats{grid-template-columns:repeat(2,1fr)}.stat:nth-child(3){border-left:0}}
+
+/* work */
+.filters{display:flex;gap:12px;flex-wrap:wrap;margin:38px 0 30px}
+.chip{padding:11px 24px;border-radius:100px;border:1.5px solid var(--burg);color:var(--burg);background:transparent;
+  font-family:'Poppins';font-weight:600;font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:.25s}
+.chip:hover{background:rgba(110,20,35,.08)}
+.chip.active{background:var(--burg);color:var(--white)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+.tile{position:relative;aspect-ratio:4/5;border-radius:18px;overflow:hidden;background:var(--sand);cursor:pointer;
+  transition:transform .35s,box-shadow .35s}
+.tile:hover{transform:translateY(-6px);box-shadow:0 22px 44px rgba(46,10,17,.25)}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.tile:hover img{transform:scale(1.06)}
+.tile .ph{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:10px;
+  background:linear-gradient(150deg,var(--burg-soft),var(--burg-deep));color:rgba(255,255,255,.75)}
+.tile .ph svg{width:34px;height:34px;opacity:.8}
+.tile .ph small{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase}
+.tile .cap{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 14px;color:var(--white);font-size:.8rem;font-weight:600;
+  background:linear-gradient(transparent,rgba(28,8,13,.85));letter-spacing:.04em}
+.tile .cap small{display:block;font-weight:400;color:rgba(255,255,255,.65);font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;margin-top:3px}
+.work-note{margin-top:26px;font-size:.82rem;color:#8a767b;font-weight:300}
+
+/* tools */
+.tools{background:var(--white)}
+.tool-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin-top:44px}
+.tool{border:1px solid #eadfd9;border-radius:20px;padding:34px 28px;transition:.3s;position:relative;overflow:hidden}
+.tool:hover{border-color:var(--burg);transform:translateY(-4px);box-shadow:0 18px 40px rgba(46,10,17,.1)}
+.tool .num{position:absolute;top:18px;right:22px;font-weight:900;color:#f0e4de;font-size:2.4rem}
+.tool .mark{width:52px;height:52px;border-radius:14px;background:var(--burg);color:var(--white);display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:1.15rem;margin-bottom:20px}
+.tool h3{font-size:1.05rem;margin-bottom:8px}
+.tool p{font-size:.86rem;color:#6b5a5e;font-weight:300;line-height:1.65}
+
+/* about */
+.about{background:linear-gradient(150deg,var(--burg) 0%,var(--burg-dark) 100%);color:var(--white)}
+.about .sec-label{color:var(--gold)}.about .sec-label::before{background:var(--gold)}
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+@media(max-width:900px){.about-grid{grid-template-columns:1fr}}
+.about p{color:rgba(255,255,255,.78);font-weight:300;line-height:1.85;margin-bottom:18px}
+.about p b{color:var(--white);font-weight:600}
+.about-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:24px;padding:38px;backdrop-filter:blur(6px)}
+.about-card .rowline{display:flex;justify-content:space-between;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.9rem}
+.about-card .rowline:last-child{border:0}
+.about-card .rowline span{color:rgba(255,255,255,.6);font-weight:300}
+.about-card .rowline b{font-weight:600}
+
+/* brands */
+.brands-list{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+.brand{padding:14px 28px;border:1.5px solid #e6d9d2;border-radius:100px;font-weight:600;color:var(--burg-deep);font-size:.9rem;transition:.25s;background:var(--white)}
+.brand:hover{background:var(--burg);color:var(--white);border-color:var(--burg);transform:translateY(-3px)}
+
+/* contact */
+.contact{background:var(--burg-dark);color:var(--white);text-align:center;padding:120px 6vw}
+.contact .sec-label{justify-content:center;color:var(--gold)}.contact .sec-label::before{background:var(--gold)}
+.contact h2{font-size:clamp(2.2rem,6vw,4.4rem);font-weight:900;line-height:1.05;margin-bottom:16px}
+.contact .ar-sub{font-family:'Cairo';color:rgba(255,255,255,.55);font-size:1.15rem;margin-bottom:44px}
+.contact-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+footer{background:var(--burg-dark);color:rgba(255,255,255,.4);text-align:center;padding:26px 6vw 34px;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;border-top:1px solid rgba(255,255,255,.08)}
+footer b{color:rgba(255,255,255,.7)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(20,5,9,.92);display:none;align-items:center;justify-content:center;z-index:200;padding:4vw;cursor:zoom-out}
+.lb.open{display:flex}
+.lb img{max-width:92vw;max-height:88vh;border-radius:14px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lb .cap{position:absolute;bottom:4vh;left:0;right:0;text-align:center;color:rgba(255,255,255,.8);font-size:.85rem;letter-spacing:.06em}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="logo">GAMMAL<span>VISUALS</span></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<header class="hero">
+  <div class="kicker">Graphic Designer · Portfolio 2026</div>
+  <h1>MOHAMED<br><span class="line2">ELGAMMAL</span></h1>
+  <p class="tag">Design that doesn't just look good — <b>it works.</b> Social media, advertising, branding and print for brands across Egypt and beyond.</p>
+  <p class="hero-ar">تصميم يفرق… مش بس شكل</p>
+  <div class="hero-cta">
+    <a class="btn btn-solid" href="#work">View the work</a>
+    <a class="btn btn-ghost" id="heroWhats" href="#" target="_blank" rel="noopener">WhatsApp me ↗</a>
+  </div>
+  <div class="hero-meta"><span>Based in Egypt</span><span>Working everywhere</span></div>
+  <div class="scroll-hint">Scroll</div>
+</header>
+
+<div class="stats" id="stats"></div>
+
+<section id="work">
+  <div class="sec-label rv">Selected work</div>
+  <h2 class="sec-title rv">Every pixel,<br>on purpose.</h2>
+  <p class="sec-sub rv">A growing collection across four disciplines. Pick a world, or scroll through all of it.</p>
+  <div class="filters rv" id="filters"></div>
+  <div class="grid" id="grid"></div>
+  <p class="work-note rv">New projects are added regularly — this gallery updates itself.</p>
+</section>
+
+<section class="tools" id="tools">
+  <div class="sec-label rv">The toolkit</div>
+  <h2 class="sec-title rv">Tools behind the pixels.</h2>
+  <div class="tool-cards">
+    <div class="tool rv"><span class="num">01</span><div class="mark">Ps</div><h3>Photoshop</h3><p>Retouching, compositing and campaign visuals built layer by layer.</p></div>
+    <div class="tool rv"><span class="num">02</span><div class="mark">Ai</div><h3>Illustrator</h3><p>Vector artwork, logos and brand systems that scale to any size.</p></div>
+    <div class="tool rv"><span class="num">03</span><div class="mark">✦</div><h3>AI-assisted design</h3><p>Generative tools that widen exploration and speed up ideas.</p></div>
+    <div class="tool rv"><span class="num">04</span><div class="mark">Pr</div><h3>Motion &amp; video</h3><p>Edits and motion pieces that keep the feed moving.</p></div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-grid">
+    <div>
+      <div class="sec-label rv">The person behind the pixels</div>
+      <h2 class="sec-title rv">Good design starts with a different way of seeing.</h2>
+      <p class="rv">I'm <b>Mohamed ElGammal</b>, a freelance graphic designer with <b>4+ years of experience</b> creating visuals for brands and businesses across Egypt.</p>
+      <p class="rv">I specialize in <b>social media design, advertising and print</b> — combining creativity, strategy and AI-assisted tools to bring ideas to life. Every brief gets the same treatment: understand the brand, then make it impossible to scroll past.</p>
+    </div>
+    <div class="about-card rv" id="aboutCard"></div>
+  </div>
+</section>
+
+<section id="brands">
+  <div class="sec-label rv">Different brands, shared ambition</div>
+  <h2 class="sec-title rv">Names behind the work.</h2>
+  <div class="brands-list rv" id="brandsList"></div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="sec-label rv">Let's work</div>
+  <h2 class="rv">Your next big idea<br>starts with a hello.</h2>
+  <p class="ar-sub rv">عندك براند أو فكرة؟ ابعتلي وأنا أظبطك 🤍</p>
+  <div class="contact-btns rv">
+    <a class="btn btn-solid" id="ctaWhats" href="#" target="_blank" rel="noopener">WhatsApp ↗</a>
+    <a class="btn btn-ghost" id="ctaMail" href="#">Email ↗</a>
+  </div>
+</section>
+
+<footer>© <span id="yr"></span> <b>Mohamed ElGammal</b> · Gammal Visuals · Made with intent in Egypt</footer>
+
+<div class="lb" id="lb"><img id="lbImg" alt=""><div class="cap" id="lbCap"></div></div>
+<script>
+/* ============================================================
+   SITE CONFIG — edit these values and the whole site updates.
+   ============================================================ */
+const SITE = {
+  name: "Mohamed ElGammal",
+  whatsapp: "201009013359",                 // international format, no +
+  email: "elgammal1919@gmail.com",
+  githubUser: "gammalvisuals",
+  githubRepo: "portfolio",
+  worksFolder: "works"
+};
+/* HOW TO ADD WORK: upload an image into the works/ folder in this
+   repository and name it  category__title.jpg  where category is
+   one of: social · ads · print · logos
+   Example:  social__orange-campaign.jpg  */
+
+const CATS = [
+  { id:"all",    label:"All" },
+  { id:"social", label:"Social media" },
+  { id:"ads",    label:"Advertising" },
+  { id:"print",  label:"Print & packaging" },
+  { id:"logos",  label:"Logos & branding" }
+];
+
+const BRANDS = ["وصايا","خليك أقيل","Glory Dental","كورة عربيا","فداء","Zad","Kova","Orca Media"];
+
+const $ = s => document.querySelector(s);
+
+/* contact links */
+const wa = "https://wa.me/" + SITE.whatsapp + "?text=" + encodeURIComponent("Hi Mohamed, I saw your portfolio and I'd like to work with you.");
+$("#heroWhats").href = wa; $("#ctaWhats").href = wa;
+$("#ctaMail").href = "mailto:" + SITE.email;
+$("#yr").textContent = new Date().getFullYear();
+
+/* stats */
+function renderStats(n){
+  const items = [
+    ["4+","Years of experience"],
+    ["4","Design disciplines"],
+    [String(BRANDS.length) + "+","Brands & clients"],
+    [n>0 ? String(n)+"+" : "Fresh","Designs in the gallery"]
+  ];
+  $("#stats").innerHTML = items.map(i=>`<div class="stat"><b>${i[0]}</b><span>${i[1]}</span></div>`).join("");
+}
+
+/* about card */
+$("#aboutCard").innerHTML = [
+  ["Based in","Fayoum, Egypt"],["Experience","4+ years, freelance"],
+  ["Focus","Social media · Ads · Print"],["Tools","Photoshop · Illustrator · AI"],
+  ["Status","Open for projects"]
+].map(r=>`<div class="rowline"><span>${r[0]}</span><b>${r[1]}</b></div>`).join("");
+
+/* brands */
+$("#brandsList").innerHTML = BRANDS.map(b=>`<span class="brand">${b}</span>`).join("");
+
+/* gallery */
+const grid = $("#grid"), filtersEl = $("#filters");
+let WORKS = [], activeCat = "all";
+
+const phTile = (cat,title)=>`<div class="tile" data-cat="${cat}">
+  <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>
+  <small>${title||"Your work here"}</small></div>
+  <div class="cap">${title||"Coming soon"}<small>${catLabel(cat)}</small></div></div>`;
+
+function catLabel(id){ const c = CATS.find(c=>c.id===id); return c?c.label:id; }
+
+function renderFilters(){
+  filtersEl.innerHTML = CATS.map(c=>{
+    const n = c.id==="all" ? WORKS.length : WORKS.filter(w=>w.cat===c.id).length;
+    return `<button class="chip ${c.id===activeCat?'active':''}" data-cat="${c.id}">${c.label}${n?` · ${n}`:""}</button>`;
+  }).join("");
+  filtersEl.querySelectorAll(".chip").forEach(ch=>ch.onclick=()=>{activeCat=ch.dataset.cat;renderAll();});
+}
+
+function renderGrid(){
+  const list = WORKS.filter(w=>activeCat==="all"||w.cat===activeCat);
+  if(!list.length){
+    grid.innerHTML = ["social","ads","print","logos"].map(c=>phTile(c,"Your work here")).join("");
+    return;
+  }
+  grid.innerHTML = list.map(w=>`<div class="tile" data-src="${w.url}">
+    <img loading="lazy" src="${w.url}" alt="${w.title}">
+    <div class="cap">${w.title}<small>${catLabel(w.cat)}</small></div></div>`).join("");
+  grid.querySelectorAll(".tile").forEach(t=>t.onclick=()=>openLb(t.dataset.src,t.querySelector(".cap").textContent));
+}
+
+function renderAll(){ renderFilters(); renderGrid(); bindReveal(); }
+
+/* load works from the repo */
+async function loadWorks(){
+  try{
+    const api = `https://api.github.com/repos/${SITE.githubUser}/${SITE.githubRepo}/contents/${SITE.worksFolder}`;
+    const r = await fetch(api);
+    if(!r.ok) throw 0;
+    const files = await r.json();
+    WORKS = files.filter(f=>/\.(png|jpe?g|webp|gif)$/i.test(f.name)).map(f=>{
+      const m = f.name.match(/^([a-z]+)__(.+?)\.[a-z]+$/i);
+      const cat = m && CATS.some(c=>c.id===m[1].toLowerCase()) ? m[1].toLowerCase() : "social";
+      const title = (m?m[2]:f.name.replace(/\.[a-z]+$/i,"")).replace(/[-_]+/g," ");
+      return { cat, title, url:f.download_url };
+    });
+  }catch(e){ WORKS = []; }
+  renderStats(WORKS.length); renderAll();
+}
+loadWorks();
+
+/* lightbox */
+const lb=$("#lb");
+function openLb(src,cap){ $("#lbImg").src=src; $("#lbCap").textContent=cap; lb.classList.add("open"); }
+lb.onclick=()=>lb.classList.remove("open");
+document.addEventListener("keydown",e=>{if(e.key==="Escape")lb.classList.remove("open")});
+
+/* nav */
+const nav=$("#nav"), links=$("#navLinks");
+addEventListener("scroll",()=>nav.classList.toggle("scrolled",scrollY>40));
+$("#burger").onclick=()=>links.classList.toggle("open");
+links.querySelectorAll("a").forEach(a=>a.onclick=()=>links.classList.remove("open"));
+
+/* reveal on scroll */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+function bindReveal(){document.querySelectorAll(".rv:not(.in)").forEach(el=>io.observe(el));}
+bindReveal();
+</script>
+</body>
+</html>
